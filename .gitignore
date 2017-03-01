@@ -1,2 +1,5 @@
 *.exe
 *.out
+*.swp
+*.o
+*.lo
