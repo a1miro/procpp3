@@ -3,7 +3,7 @@
 #include<vector>
 
 using namespace std;
-
+#if 0
 class EvenSequence
 {
     public:
@@ -50,4 +50,50 @@ int main()
     }
     return 0;
 }
+#endif
 
+class System
+{
+    public:
+        System()=delete;
+        System(const System&) = delete;
+        System operator=(const System&) = delete;
+
+        System(initializer_list <string> args)
+        {
+            args_.reserve(args.size());
+            args_.insert(cend(args_), cbegin(args), cend(args));
+        }
+
+        void dump() const
+        {
+            cout << "args:" ;
+            for (auto arg : args_)
+            {
+                cout << arg << " ";
+
+            }
+            cout << endl;
+
+        }
+
+    private:
+        static const int SYSTEM_INIT_VALUE=0; 
+        static const std::string SYSTEM_DEFAULT_NAME;
+        static int svariable;
+
+        int count_      = SYSTEM_INIT_VALUE;
+        std::string name_ = SYSTEM_DEFAULT_NAME; 
+        std::vector<string> args_;
+};
+
+const std::string System::SYSTEM_DEFAULT_NAME = "zero"; 
+int System::svariable = 0; 
+
+
+int main()
+{
+    System s = {"bla1", "bla2", "bla3"};
+    s.dump();
+    return 0;
+}
