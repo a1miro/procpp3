@@ -1,16 +1,16 @@
 #include<iostream>
-#include<initializer_list>
 #include<vector>
+#include<initializer_list>
 
 using namespace std;
-#if 0
+
 class EvenSequence
 {
     public:
-        EvenSequence(initializer_list <double> args)
+       EvenSequence(std::initializer_list<double> args)
         {
             if (args.size() % 2 != 0) {
-                throw invalid_argument("initializer_list should "
+                throw std::invalid_argument("initializer_list should "
                         "contain even number of elements.");
             }
             mSequence.reserve(args.size());
@@ -32,25 +32,16 @@ class EvenSequence
 
     private:
         std::vector<double> mSequence;
+
+        static const int kInt1 = 1; //Ok
+        //static const std::string kStr = "test"; //Error
+        //static int sInt2 = 2;                   //Error
+        const int kInt3 = 3;
 };
 
 
 
 
-int main()
-{
-    EvenSequence p1 = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
-    p1.dump();
-
-    try {
-        EvenSequence p2 = {1.0, 2.0, 3.0};
-
-    } catch (const invalid_argument& e) {
-        cout << e.what() << endl;
-    }
-    return 0;
-}
-#endif
 
 class System
 {
@@ -93,7 +84,21 @@ int System::svariable = 0;
 
 int main()
 {
+    EvenSequence p1 = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
+    p1.dump();
+
+    try {
+        EvenSequence p2 = {1.0, 2.0, 3.0};
+
+    } catch (const invalid_argument& e) {
+        cout << e.what() << endl;
+    }
+
     System s = {"bla1", "bla2", "bla3"};
     s.dump();
+
+    
+    std::vector<std::string> myvec={"String1", "String2", "String3"};
+    
     return 0;
 }
