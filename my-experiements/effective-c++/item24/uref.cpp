@@ -32,12 +32,13 @@ void bar(Integer&& param) {
 
 int main() {
     Integer&& rv = Integer(5); // rvalue reference
-    auto&& uref = rv;          // universal reference
+    auto&& uref = Integer(5);  // universal reference
 
     Integer v(5);
 
     foo<Integer>(std::forward<Integer>(rv)); // rvalue reference
-    foo<Integer>(std::move(v)); //rvalue reference
+    foo<Integer>(std::move(v));              // rvalue reference
+    foo<Integer>(uref);                      // universal reference
 
     bar(std::forward<Integer>(uref));
     bar(std::move(v));
