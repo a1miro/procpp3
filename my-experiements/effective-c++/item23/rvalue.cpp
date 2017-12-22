@@ -17,6 +17,8 @@ void incr(int&& value)
     cout << "value = " << value << endl;
 }
 
+
+
 template<typename T>
 void incr_wrapper(T&& param) {
     incr(std::forward<T>(param));
@@ -69,7 +71,7 @@ int main() {
     incr_wrapper(rvref1);
 
     cout << "incr_wrapper(rvref2), expected: rvalue reference" << endl;
-    incr_wrapper(rvref2);
+    incr_wrapper(forward<int>(rvref1));
 
     return 0;
 }
