@@ -22,6 +22,13 @@ template<typename T> void f(const T* param) {
     cout << "const T* param = " << *param << endl;
 }
 
+template<typename T> void f(T&& param) {
+    using namespace std;
+    const char* ref = std::is_lvalue_reference<T&&>::value ? "lvalue" : "rvalue";
+    cout << "param = " << param;
+    cout << ", " << ref << endl;
+}
+
 
 int main() {
 
@@ -38,6 +45,7 @@ int main() {
     f(cpx);
     f(&x);
     f(&cx);
+    f(27);
    
 
 

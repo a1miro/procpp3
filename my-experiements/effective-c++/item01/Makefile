@@ -1,6 +1,6 @@
 targets=deduction1 deduction2
 CXX:=g++
-CXX_FLAGS:=-std=c++14
+CXX_FLAGS:=-std=c++17
 
 all: $(targets)
 
