@@ -29,8 +29,6 @@ template<typename T> void f(T&& param) {
     cout << ", " << ref << endl;
 }
 
-
-
 int main() {
 
     int x = 27;

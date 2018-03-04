@@ -15,13 +15,16 @@ int main() {
     int x = 27;
     const int cx = x;
     const int& rx = x;
+    auto&& uref1 = x;
+    int&& uref2(int(27));
 
-    f(x);   // lvalue: T is int, param's type is int&
-    f(cx);  // lvalue: T is const int, param's type is const int&
-    f(rx);  // lvalue: T is const int, param's type is const int&
-    f(27);      // rvalue
+    f(x);   // lvalue 
+    f(cx);  // lvalue 
+    f(rx);  // lvalue 
+    f(27);  // rvalue
+    f(uref1); // lvalue
+    f(uref2); // lvalue
     f(int(27)); // rvalue
-    f(*new int(27)); // rvalue
 
     return 0;
 }

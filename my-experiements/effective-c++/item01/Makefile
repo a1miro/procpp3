@@ -1,6 +1,6 @@
 targets=deduction1 deduction2 deduction3 array_arguments function_arguments
 CXX:=g++
-CXX_FLAGS:=-std=c++14
+CXX_FLAGS:=-std=c++17
 
 all: $(targets)
 
