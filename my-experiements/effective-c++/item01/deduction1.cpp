@@ -1,7 +1,12 @@
 #include <iostream>
 
-// Parameter deduction for Case1: 
-//  ParamType is a reference/pointer, but not an universal reference
+#if 0
+template<typename T> void f(T param) {
+    using namespace std;
+    cout << "T param = " << param << endl;
+}
+#endif
+
 template<typename T> void f(T& param) {
     using namespace std;
     cout << "T& param = " << param << endl;
