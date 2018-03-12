@@ -1,5 +1,4 @@
-targets=check_type_by_error boost_typeid
-
+targets=auto_simple
 CXX:=g++
 CXX_FLAGS:=-std=c++17
 
