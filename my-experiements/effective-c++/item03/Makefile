@@ -1,4 +1,5 @@
 targets=check_type_by_error boost_typeid
+
 CXX:=g++
 CXX_FLAGS:=-std=c++17
 
