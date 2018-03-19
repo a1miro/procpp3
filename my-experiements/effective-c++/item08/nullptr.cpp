@@ -22,6 +22,10 @@ class Widget {
         Widget(const char* name): _name(name) {
             cout << "Widget ctor" << endl;
         }
+
+        Widget(const Widget& hls) = delete;
+        Widget& operator=(const Widget& hls) = delete;
+
         virtual ~Widget() {
             cout << "Widget dtor" << endl;
         }
@@ -69,11 +73,11 @@ int main(int argc, char** argv) {
 
     auto sp = std::make_shared<Widget>("Shared Pointer");
     //auto up = std::make_unique<Widget>("Unique Pointer");
-    std::unique_ptr<Widget> up = std::make_unique<Widget>("Unique Pointer");
+    //std::unique_ptr<Widget> up = std::make_unique<Widget>("Unique Pointer");
     auto p = new Widget("Plain Pointer");
 
     cout << "returned value: " << fcall(f1, sp) << endl;
-    //cout << "returned value: " << fcall(f2, up) << endl;
+    //cout << "returned value: " << fcall(f2, std::make_unique<Widget>("Unique Pointer")) << endl;
     cout << "returned value: " << fcall(f3, p) << endl;
     cout << "returned value: " << fcall(f3, nullptr) << endl;
    
