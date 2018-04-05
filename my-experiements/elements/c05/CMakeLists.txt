@@ -12,11 +12,14 @@ set(CMAKE_BUILD_TYPE Debug)
 #set_property(TARGET initialize_list PROPERTY CXX_STANDARD 14)
 #add_dependencies(initialize_list uniform_initialization)
 
-add_executable(stream_iterators stream_iterators.cpp)
-set_property(TARGET stream_iterators PROPERTY CXX_STANDARD 14)
 
-add_executable(find_duplicates find_duplicates.cpp)
-set_property(TARGET find_duplicates PROPERTY CXX_STANDARD 14)
+add_executable(problem_5.0 problem_5.0.cpp)
+set_property(TARGET problem_5.0 PROPERTY CXX_STANDARD 14)
 
+add_executable(problem_5.1 problem_5.1.cpp)
+set_property(TARGET problem_5.1 PROPERTY CXX_STANDARD 14)
+
+add_executable(problem_5.2 problem_5.2.cpp)
+set_property(TARGET problem_5.2 PROPERTY CXX_STANDARD 14)
 
 
