@@ -82,9 +82,6 @@ class Zero : public Figure
     public:
         //Public interface
         Zero() : Figure (std::vector<float> zero) {;}
-
-
-
 }
 
 
