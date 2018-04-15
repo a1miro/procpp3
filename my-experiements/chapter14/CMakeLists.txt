@@ -18,6 +18,9 @@ set_property(TARGET operator_overloading PROPERTY CXX_STANDARD 14)
 add_executable(bitwise_operators bitwise_operators.cpp)
 set_property(TARGET bitwise_operators PROPERTY CXX_STANDARD 14)
 
+add_executable(dereferencing_operators dereferencing_operators.cpp)
+set_property(TARGET dereferencing_operators PROPERTY CXX_STANDARD 14)
+
 
 
 
