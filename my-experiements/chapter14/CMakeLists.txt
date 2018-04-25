@@ -21,6 +21,12 @@ set_property(TARGET bitwise_operators PROPERTY CXX_STANDARD 14)
 add_executable(dereferencing_operators dereferencing_operators.cpp)
 set_property(TARGET dereferencing_operators PROPERTY CXX_STANDARD 14)
 
+add_executable(conversion_operators conversion_operators.cpp)
+set_property(TARGET conversion_operators PROPERTY CXX_STANDARD 14)
+
+add_executable(boolean_operator boolean_operator.cpp)
+set_property(TARGET boolean_operator PROPERTY CXX_STANDARD 14)
+
 
 
 
