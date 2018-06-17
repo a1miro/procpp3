@@ -21,8 +21,10 @@ auto median(initializer_list<T> items)
 int main() {
 
     auto md = median({1,2,3,4,5,6,7,8,9});
-    auto mixed = median({1,2,3,0});
     cout << "median = " << md << endl;
 
+    // COMPILER ERROR!!! 
+    // mixed types int 1,2 and float 3.0
+    // auto mixed = median({1,2,3.0});
     return 0;
 }

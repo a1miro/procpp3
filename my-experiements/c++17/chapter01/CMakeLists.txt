@@ -22,6 +22,11 @@ set_property(TARGET c_style_arrays PROPERTY CXX_STANDARD 17)
 add_executable(initializer_list initializer_list.cpp)
 set_property(TARGET initializer_list PROPERTY CXX_STANDARD 17)
 
+add_executable(smart_pointers smart_pointers.cpp)
+set_property(TARGET smart_pointers PROPERTY CXX_STANDARD 17)
+
+
+
 
 
 
