@@ -25,6 +25,9 @@ set_property(TARGET initializer_list PROPERTY CXX_STANDARD 17)
 add_executable(smart_pointers smart_pointers.cpp)
 set_property(TARGET smart_pointers PROPERTY CXX_STANDARD 17)
 
+add_executable(uniform_initialization uniform_initialization.cpp)
+set_property(TARGET uniform_initialization PROPERTY CXX_STANDARD 17)
+
 
 
 
