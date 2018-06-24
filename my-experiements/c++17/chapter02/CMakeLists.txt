@@ -16,6 +16,10 @@ add_definitions(-Wall)
 add_executable(c_strings c_strings.cpp)
 set_property(TARGET c_strings PROPERTY CXX_STANDARD 17)
 
+add_executable(c++_string c++_string.cpp)
+set_property(TARGET c++_string PROPERTY CXX_STANDARD 17)
+
+
 
 
 
