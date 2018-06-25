@@ -4,13 +4,7 @@
 using namespace std;
 
 int main() {
-    string myString = "hello";
-
-    printf("%s\n", myString.c_str());
-
-    // Data is only available from C++17
-    char* s = myString.data();
-    s[1] = 'a';
+    string myString("hello");
 
     printf("%s\n", myString.c_str());
 
