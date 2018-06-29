@@ -29,17 +29,7 @@ int main() {
     index = 0;
     value = stoi(to_parse, &index, 16);
     cout << "Parsed value: 0x" << hex << uppercase << value << dec << nouppercase << endl;
-    cout << "unparsed part: " << to_parse.substr(index) << endl;
-
-
-
-    
-
-
-
-
-    
-
+    cut << "unparsed part: " << to_parse.substr(index) << endl;
 
 
     return 0;
