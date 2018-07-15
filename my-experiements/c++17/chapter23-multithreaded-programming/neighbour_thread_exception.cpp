@@ -9,32 +9,6 @@
 using namespace std;
 
 #define TP()  cout << __FUNCTION__ << ":" << __LINE__ << endl;
-#if 0
-template <typename T, typename... Args> 
-decltype(auto) run_async(T* obj, void (T::*func)(Args... args), exception_ptr& err, Args... args)
-{
-    return move(thread
-                    (
-                     [obj, func, err, args...]()->void 
-                     {
-                     TP();
-                         try 
-                         {
-                             (obj->*func)(args...);
-                             TP();
-                         }
-                         catch (...)
-                         {
-                             //err = current_exception();
-                             cout << "Thread exception ..." << endl;
-                             TP()
-                         }
-                     TP();
-                     }
-                    ));
- 
-}
-#endif
 
 template <typename T, typename... Args> 
 auto run_async(T* obj, void (T::*func)(Args... args), exception_ptr& err, Args... args) 
@@ -70,7 +44,7 @@ class A
         {
             //char last = 'z';
             TP();
-            for (char c = 'a'; c < last; c++) 
+            for (char c = 'A'; c < last; c++) 
             {
                 cout << c << ", ";
                 if(c == last - 3)
@@ -114,8 +88,8 @@ int main() {
 
     cout << "Call a-object function async" << endl;
    
-    auto t1 = run_async(&a, &A::print_letters, err1,'g');
-    auto t2 = run_async(&b, &B::print_numbers, err2, 5);
+    auto t1 = run_async(&a, &A::print_letters, err1,'x');
+    auto t2 = run_async(&b, &B::print_numbers, err2, 99);
     t1.join();
     t2.join();
 
