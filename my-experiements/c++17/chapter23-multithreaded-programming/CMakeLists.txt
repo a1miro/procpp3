@@ -16,3 +16,8 @@ add_executable(neighbour_thread_exception neighbour_thread_exception.cpp)
 set_property(TARGET neighbour_thread_exception PROPERTY CXX_STANDARD 17)
 target_link_libraries(neighbour_thread_exception pthread)
 
+add_executable(atomic_operations atomic_operations.cpp)
+set_property(TARGET atomic_operations PROPERTY CXX_STANDARD 17)
+target_link_libraries(atomic_operations pthread atomic)
+
+
