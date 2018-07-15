@@ -12,21 +12,7 @@ set(CMAKE_BUILD_TYPE Debug)
 #set_property(TARGET initialize_list PROPERTY CXX_STANDARD 14)
 #add_dependencies(initialize_list uniform_initialization)
 
-add_executable(operator_overloading operator_overloading.cpp)
-set_property(TARGET operator_overloading PROPERTY CXX_STANDARD 14)
-
-add_executable(bitwise_operators bitwise_operators.cpp)
-set_property(TARGET bitwise_operators PROPERTY CXX_STANDARD 14)
-
-add_executable(dereferencing_operators dereferencing_operators.cpp)
-set_property(TARGET dereferencing_operators PROPERTY CXX_STANDARD 14)
-
-add_executable(conversion_operators conversion_operators.cpp)
-set_property(TARGET conversion_operators PROPERTY CXX_STANDARD 14)
-
-add_executable(boolean_operator boolean_operator.cpp)
-set_property(TARGET boolean_operator PROPERTY CXX_STANDARD 14)
-
-
-
+add_executable(neighbour_thread_exception neighbour_thread_exception.cpp)
+set_property(TARGET neighbour_thread_exception PROPERTY CXX_STANDARD 17)
+target_link_libraries(neighbour_thread_exception pthread)
 
