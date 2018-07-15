@@ -36,28 +36,29 @@ decltype(auto) run_async(T* obj, void (T::*func)(Args... args), exception_ptr& e
 }
 #endif
 
-template <typename T> 
-auto run_async(T* obj, void (T::*func)(), exception_ptr& err) 
+template <typename T, typename... Args> 
+auto run_async(T* obj, void (T::*func)(Args... args), exception_ptr& err, Args... args) 
 {
     return move(
             thread
                     (
-                     [obj, func, err]()->void 
+                     [obj, func, args...](exception_ptr& err)->void 
                      {
                      TP();
                          try 
                          {
-                             (obj->*func)();
+                             (obj->*func)(args...);
                              TP();
                          }
                          catch (...)
                          {
-                             //err = current_exception();
+                             err = current_exception();
                              cout << "Thread exception ..." << endl;
                              TP()
                          }
                      TP();
-                     }
+                     },
+                     ref(err)
                     )
             );
 }
@@ -65,9 +66,9 @@ auto run_async(T* obj, void (T::*func)(), exception_ptr& err)
 class A
 {
     public:
-        void print_letters() 
+        void print_letters(char last) 
         {
-            char last = 'z';
+            //char last = 'z';
             TP();
             for (char c = 'a'; c < last; c++) 
             {
@@ -75,7 +76,7 @@ class A
                 if(c == last - 3)
                 {
                     TP();
-                    //throw runtime_error("Exception from print_letters");
+                    throw runtime_error("Exception from print_letters");
                 }
             }
             cout << endl;
@@ -85,9 +86,9 @@ class A
 class B 
 {
     public:
-        void print_numbers() 
+        void print_numbers(int last) 
         {
-            int last = 10;
+            //int last = 10;
             TP();
             for (int i = 0; i < last; i++)
             {
@@ -95,7 +96,7 @@ class B
                 if (i == last - 3) 
                 {
                     TP();
-                    //throw runtime_error("Exception from print_numbers");
+                    throw runtime_error("Exception from print_numbers");
                 }
             }
             cout << endl;
@@ -113,10 +114,16 @@ int main() {
 
     cout << "Call a-object function async" << endl;
    
-    auto t1 = run_async(&a, &A::print_letters, err1);
-    auto t2 = run_async(&b, &B::print_numbers, err2);
+    auto t1 = run_async(&a, &A::print_letters, err1,'g');
+    auto t2 = run_async(&b, &B::print_numbers, err2, 5);
     t1.join();
     t2.join();
+
+    if (err1)
+        cout << "t1 has returned an exception ..." << endl;
+
+    if (err2)
+        cout << "t2 has returned an exception ..." << endl;
 
     return 0;
 }
