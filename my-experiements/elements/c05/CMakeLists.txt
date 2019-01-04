@@ -14,12 +14,12 @@ set(CMAKE_BUILD_TYPE Debug)
 
 
 add_executable(problem_5.0 problem_5.0.cpp)
-set_property(TARGET problem_5.0 PROPERTY CXX_STANDARD 14)
+set_property(TARGET problem_5.0 PROPERTY CXX_STANDARD 17)
 
 add_executable(problem_5.1 problem_5.1.cpp)
-set_property(TARGET problem_5.1 PROPERTY CXX_STANDARD 14)
+set_property(TARGET problem_5.1 PROPERTY CXX_STANDARD 17)
 
 add_executable(problem_5.2 problem_5.2.cpp)
-set_property(TARGET problem_5.2 PROPERTY CXX_STANDARD 14)
+set_property(TARGET problem_5.2 PROPERTY CXX_STANDARD 17)
 
 

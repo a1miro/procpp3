@@ -1,5 +1,6 @@
-#include<iostream>
-#include<limits>
+#include <iostream>
+#include <limits>
+#include <cmath>
 
 
 int main() {
@@ -22,8 +23,23 @@ int main() {
 
     cout << "min(double) = " << std::numeric_limits<double>::min() << endl;
     cout << "max(double) = " << std::numeric_limits<double>::max() << endl;
+
     cout << "infinity(double) = " << std::numeric_limits<double>::infinity() << endl;
 
+
+    double result = 1.5/0;
+    cout << "isinf(result) = " << std::isinf(result) << endl;
+    
+    result += 1.5;
+    cout << "isinf(result) = " << std::isinf(result) << endl;
+
+    result = result / result;
+    cout << "isinf(result) = " << std::isinf(result) << endl;
+    cout << "isnan(result) = " << std::isnan(result) << endl;
+
+    result = 0.0/0.0;
+    cout << "isinf(result) = " << std::isinf(result) << endl;
+    cout << "isnan(result) = " << std::isnan(result) << endl;
 
     return 0;
 }
