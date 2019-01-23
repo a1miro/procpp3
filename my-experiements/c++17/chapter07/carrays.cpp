@@ -15,7 +15,6 @@ class Simple {
         Simple& operator=(const Simple&) = delete;
 };
 
-#define TP() cout << __LINE__ << endl
 int main(int argc, char** argv) 
 {
     int* numbers = nullptr;
@@ -60,19 +59,19 @@ int main(int argc, char** argv)
     cout << "Allocating 3d-array" << endl;
     int*** array3d = new int** [x_size];
 
-    TP();
+    
     for (size_t x = 0; x < x_size; ++x)
     {
-        TP();
+        
         array3d[x] = new int* [y_size];
         for (size_t y = 0; y < y_size; ++y)
         {
-            TP();
+            
             array3d[x][y] = new int[z_size];
         }
-        TP();
+        
     }
-    TP();
+    
 
     cout << "Initalising 3d-array" << endl;
     for (size_t x = 0; x < x_size; ++x)
@@ -80,28 +79,11 @@ int main(int argc, char** argv)
             for (size_t z = 0; z < z_size; ++z)
                 array3d[x][y][z] = x*y*z;
 
-    TP();
+    
     cout << "Printing 3d-array" << endl;
     for (size_t x = 0; x < x_size; ++x)
         for (size_t y = 0; y < y_size; ++y)
             for (size_t z = 0; z < z_size; ++z)
                 cout << "[" << x << "]["<< y << "][" << z << "] ";
-
-
-    TP();
-
-
-
-
-
-
-    
-    
-
-
-
-
-
-
     return 0;
 }
