@@ -1,6 +1,6 @@
-#include<iostream>
-#include<exception>
-#include<cstdint>
+#include <iostream>
+#include <exception>
+#include <cstdint>
 
 using std::cerr;
 using std::cout;
