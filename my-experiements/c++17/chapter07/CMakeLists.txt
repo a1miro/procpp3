@@ -15,3 +15,6 @@ add_definitions(-Wall)
 
 add_executable(carrays carrays.cpp)
 set_property(TARGET carrays PROPERTY CXX_STANDARD 17)
+
+add_executable(pointers pointers.cpp)
+set_property(TARGET pointers PROPERTY CXX_STANDARD 17)
