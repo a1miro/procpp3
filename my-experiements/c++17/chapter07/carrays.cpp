@@ -1,6 +1,7 @@
 #include <iostream>
 #include <exception>
 #include <cstdint>
+#include <memory>
 
 using std::cerr;
 using std::cout;
@@ -71,7 +72,6 @@ int main(int argc, char** argv)
         }
         
     }
-    
 
     cout << "Initalising 3d-array" << endl;
     for (size_t x = 0; x < x_size; ++x)
@@ -85,5 +85,10 @@ int main(int argc, char** argv)
         for (size_t y = 0; y < y_size; ++y)
             for (size_t z = 0; z < z_size; ++z)
                 cout << "[" << x << "]["<< y << "][" << z << "] ";
+
+    cout << "Using unique_ptr for C-style arrays" << endl;
+    auto simple_objects_array = std::make_unique<Simple[]>(10);
+
+
     return 0;
 }

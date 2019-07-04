@@ -6,7 +6,7 @@ using std::endl;
 using std::string;
 
 #define TP()    cout << __FILE__ << " : " << __FUNCTION__ << " : " << __LINE__ << endl
-#define WONT_COMPILE
+//#define WONT_COMPILE
 
 int main() {
     TP();
