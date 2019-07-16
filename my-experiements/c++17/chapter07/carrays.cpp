@@ -2,6 +2,7 @@
 #include <exception>
 #include <cstdint>
 #include <memory>
+#include <vector>
 
 using std::cerr;
 using std::cout;
@@ -15,6 +16,15 @@ class Simple {
         Simple(const Simple&) = delete;
         Simple& operator=(const Simple&) = delete;
 };
+
+//template <size_t SIZE=1, typename T> using  D1 = typename T [SIZE];
+
+template<class T> 
+struct Alloc {};
+
+template<class T>
+using VEC = std::vector<T, Alloc<T>>;
+
 
 int main(int argc, char** argv) 
 {
@@ -88,6 +98,41 @@ int main(int argc, char** argv)
 
     cout << "Using unique_ptr for C-style arrays" << endl;
     auto simple_objects_array = std::make_unique<Simple[]>(10);
+
+    cout << "Allocating 3d-array" << endl;
+    //template <typename SIZE, class T> using 3D = 2D<T,SIZE> [SIZE];
+    const size_t SIZE=10;
+    using std::make_unique;
+    using std::unique_ptr;
+
+    //auto a3d = std::make_unique<std::unique_ptr<int* []>[]>(SIZE);
+    auto a3d = make_unique<unique_ptr<unique_ptr<int []>[]> []>(SIZE);
+
+        for (size_t x = 0; x < SIZE;  ++x)
+    {
+	    a3d[x] = make_unique<unique_ptr<int []> []>(SIZE);
+	    for (size_t y = 0; y < SIZE; ++y)
+	    {
+		    a3d[x][y] = std::make_unique<int []>(SIZE);
+	    }
+    }
+
+	cout << "Initalising 3d-array" << endl;
+	for (size_t x = 0; x < SIZE; ++x)
+		for (size_t y = 0; y < SIZE; ++y)
+			for (size_t z = 0; z < SIZE; ++z)
+				a3d[x][y][z] = x*y*z;
+
+
+	cout << "Printing 3d-array" << endl;
+	for (size_t x = 0; x < SIZE; ++x)
+		for (size_t y = 0; y < SIZE; ++y)
+			for (size_t z = 0; z < SIZE; ++z)
+				cout << "a3d[" << x << "]["<< y << "][" << z << "] =" << a3d[x][y][z] << endl;
+
+
+
+
 
 
     return 0;
