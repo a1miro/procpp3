@@ -19,4 +19,7 @@ set_property(TARGET grid PROPERTY CXX_STANDARD 17)
 add_executable(optional_example optional_example.cpp)
 set_property(TARGET optional_example  PROPERTY CXX_STANDARD 17)
 
+add_executable(deduction deduction.cpp)
+set_property(TARGET deduction  PROPERTY CXX_STANDARD 17)
+
 
