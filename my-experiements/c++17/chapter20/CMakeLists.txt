@@ -13,13 +13,7 @@ set(CMAKE_BUILD_TYPE Debug)
 #add_dependencies(initialize_list uniform_initialization)
 add_definitions(-Wall)
 
-add_executable(queue_example queue_example.cpp)
-set_property(TARGET queue_example PROPERTY CXX_STANDARD 98)
-
-add_executable(enum_example enum_example.cpp)
-set_property(TARGET enum_example PROPERTY CXX_STANDARD 17)
-
-
-
+add_executable(duration_ex duration_ex.cpp)
+set_property(TARGET duration_ex PROPERTY CXX_STANDARD 17)
 
 
