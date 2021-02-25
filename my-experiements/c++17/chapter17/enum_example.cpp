@@ -5,7 +5,8 @@ enum class cmd_id_t : int {
   CMD_STOP
 };
 
-enum class cmd_simple_id_t : cmd_id_t {
+#if 0
+enum class cmd_simple_id_t : public cmd_id_t {
   CMD_ECHO = CMD_STOP + 1
 };
 
@@ -15,7 +16,7 @@ int main() {
       id <=  cmd_simple_id_t::CMD_ECHO; id++)
   {
     cmd_simple_id = static_cast<cmd_dimple_id_t>(id) ;
-    swich(cmd_simple_id) {
+    switch(cmd_simple_id) {
       case CMD_STATUS:
         std::cout << "CMD_STATUS" << std::endl;
         break;
@@ -31,3 +32,4 @@ int main() {
   }
   return 0;
 }
+#endif

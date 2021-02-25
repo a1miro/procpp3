@@ -14,10 +14,14 @@ set(CMAKE_BUILD_TYPE Debug)
 add_definitions(-Wall)
 
 add_executable(queue_example queue_example.cpp)
-set_property(TARGET queue_example PROPERTY CXX_STANDARD 98)
+set_property(TARGET queue_example PROPERTY CXX_STANDARD 17)
 
 add_executable(enum_example enum_example.cpp)
 set_property(TARGET enum_example PROPERTY CXX_STANDARD 17)
+
+add_executable(vector_ex vector_ex.cpp)
+set_property(TARGET vector_ex PROPERTY CXX_STANDARD 17)
+
 
 
 
