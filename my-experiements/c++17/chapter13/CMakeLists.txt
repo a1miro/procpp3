@@ -26,4 +26,4 @@ add_executable(read_name read_name.cpp)
 set_property(TARGET read_name PROPERTY CXX_STANDARD 17)
 
 add_executable(file_stream file_stream.cpp)
-set_property(TARGET file_stream PROPERTY CXX_STANDARD 17)
+set_property(TARGET file_stream PROPERTY CXX_STANDARD 20)
